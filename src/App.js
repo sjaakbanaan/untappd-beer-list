@@ -1,6 +1,7 @@
 import React, { createContext, useState } from "react";
 import { SearchBar } from "./SearchAndResult/SearchBar";
 import { SearchResult } from "./SearchAndResult/SearchResult";
+import SWR from "./SWR";
 import "./styles.css";
 
 export const SearchContext = createContext();
@@ -16,6 +17,7 @@ const App = () => {
       >
         <SearchBar />
         <SearchResult />
+        <SWR />
       </SearchContext.Provider>
     </div>
   );
