@@ -1,7 +1,6 @@
 import React, { createContext, useState } from "react";
 import { SearchBar } from "./SearchAndResult/SearchBar";
-import { SearchResult } from "./SearchAndResult/SearchResult";
-import SWR from "./SWR";
+import { SearchResults } from "./SearchAndResult/SearchResults";
 import "./styles.css";
 
 export const SearchContext = createContext();
@@ -16,8 +15,7 @@ const App = () => {
         value={{ debouncedSearchTerm, setDebouncedSearchTerm }}
       >
         <SearchBar />
-        <SearchResult />
-        <SWR />
+        {debouncedSearchTerm && <SearchResults />}
       </SearchContext.Provider>
     </div>
   );
