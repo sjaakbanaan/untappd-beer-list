@@ -4,6 +4,7 @@ import { SelectedBeers } from "./components/SelectedBeers";
 import { SearchBar } from "./components/SearchBar";
 import "./styles.css";
 
+// set a SearchContext as a state manager for all our search-related components
 export const SearchContext = createContext();
 
 const App = () => {
