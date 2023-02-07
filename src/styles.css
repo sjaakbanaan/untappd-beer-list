@@ -8,3 +8,7 @@ li {
   padding: 0;
   margin: 0;
 }
+/* TODO: transform into styled component */
+.container {
+  padding: 10px 0;
+}

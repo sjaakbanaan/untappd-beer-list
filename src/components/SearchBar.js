@@ -5,6 +5,7 @@ const SearchBar = () => {
   const { setDebouncedSearchTerm } = useContext(SearchContext);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // every key strike is registered, but we only save it to context after 0,5s inactivity
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
@@ -20,7 +21,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <input type="text" onChange={handleInput} value={searchTerm} />
     </div>
   );
