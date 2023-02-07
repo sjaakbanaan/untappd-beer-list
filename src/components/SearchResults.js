@@ -7,6 +7,7 @@ import "../styles.css";
 const SearchResults = () => {
 
   const { debouncedSearchTerm: searchParam, selectedBeers, setSelectedBeers } = useContext(SearchContext);
+  // get search results from untappd API via getBeers util
   const { beerData, isLoading } = getBeers({ searchParam });
 
   const addBeer = (beer) => {
