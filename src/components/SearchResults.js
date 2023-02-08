@@ -4,6 +4,9 @@ import getBeers from '../utils/getBeers';
 import { STableGrid } from "./styles";
 import "../styles.css";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const SearchResults = () => {
 
   const { debouncedSearchTerm: searchParam, selectedBeers, setSelectedBeers } = useContext(SearchContext);
@@ -17,6 +20,17 @@ const SearchResults = () => {
         "selectedBeers",
         JSON.stringify([...selectedBeers, beer])
       );
+      // toast time
+      toast.success('🦄 Bier toegevoegd aan lijst!', {
+        position: "top-center",
+        autoClose: 2400,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   };
 
@@ -43,9 +57,11 @@ const SearchResults = () => {
           <li key={item.bid} onClick={() => addBeer(item.beer)}>
             <span>{item.beer.beer_name}</span>
             <img src={item.beer.beer_label} alt="" />
+            <span>{item.brewery.brewery_name}</span>
           </li>
         ))}
       </STableGrid>
+      <ToastContainer />
     </div>
   )
 };

@@ -15,7 +15,7 @@ const App = () => {
   );
 
   return (
-    <div>
+    <div className="wrapper">
       <h1>Untappd List Creator</h1>
       <SearchContext.Provider
         value={{ 

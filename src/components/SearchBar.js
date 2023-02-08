@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { SearchContext } from "../App";
+import { SSearchBar } from "./styles";
 
 const SearchBar = () => {
   const { setDebouncedSearchTerm } = useContext(SearchContext);
@@ -22,7 +23,9 @@ const SearchBar = () => {
 
   return (
     <div className="container">
-      <input type="text" onChange={handleInput} value={searchTerm} />
+      <SSearchBar>
+        <input type="text" onChange={handleInput} placeholder="What beer are you looking for?" value={searchTerm} />
+      </SSearchBar>
     </div>
   );
 };
