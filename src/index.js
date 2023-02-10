@@ -3,4 +3,4 @@ import App from './App';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement); // createRoot(container!) if you use TypeScript
-root.render(<App tab="home" />);
+root.render(<App />);

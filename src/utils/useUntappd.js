@@ -5,23 +5,43 @@ const clientId = process.env.REACT_APP_CLIENT_ID;
 const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function useUntappd({ searchParam }) {
+function useUntappd({ searchParam, beerId }) {
   const fetcherOptions = { revalidateOnFocus: false };
-  const beerData = {};
+  let beersDataLoaded = {};
+  let beerDataLoaded = {};
 
-  const { data, isLoading } = useSWR(
-    `https://api.untappd.com/v4/search/beer?q=${searchParam}&client_id=${clientId}&client_secret=${clientSecret}`,
-    fetcher,
-    fetcherOptions
-  );
-  if (data && Object.keys(data).length > 0) {
-    beerData.beers = data.response?.beers?.items;
+  if (searchParam) {
+    const { data: beersData, isLoading: isLoadingBeers } = useSWR(
+      `https://api.untappd.com/v4/search/beer?q=${searchParam}&client_id=${clientId}&client_secret=${clientSecret}`,
+      fetcher,
+      fetcherOptions
+    );
+    if (!isLoadingBeers) {
+      if (beersData && Object.keys(beersData).length > 0) beersDataLoaded = beersData;
+    }
+    return {
+      beersData:
+        Object.values(beersDataLoaded).length > 0 &&
+        beersDataLoaded?.response?.beers?.items,
+      isLoading: isLoadingBeers,
+    };
   }
-  // maybe get beer ratings later and add it to beerData..
-  return {
-    beerData: Object.values(beerData).length > 0 && beerData,
-    isLoading,
-  };
+
+  if (beerId) {
+    const { data: beerData, isLoading: isLoadingBeer } = useSWR(
+      `https://api.untappd.com/v4/beer/info/${beerId}?client_id=${clientId}&client_secret=${clientSecret}`,
+      fetcher,
+      fetcherOptions
+    );
+    if (!isLoadingBeer) {
+      if (beerData && Object.keys(beerData).length > 0) beerDataLoaded = beerData;
+    }
+    return {
+      beerData:
+        Object.values(beerDataLoaded).length > 0 && beerDataLoaded?.response?.beer,
+      isLoading: isLoadingBeer,
+    };
+  }
 }
 
 export default useUntappd;

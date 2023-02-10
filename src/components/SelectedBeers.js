@@ -33,10 +33,9 @@ const SelectedBeers = () => {
         <STableGrid>
           {selectedBeers.map((beer) => (
             <li key={beer.bid}>
-              <button onClick={() => removeBeer(beer)}>
-                <span>{beer.beer_name}</span>
-                <img src={beer.beer_label} alt="" />
-              </button>
+              <span>{beer.beer_name}</span>
+              <img src={beer.beer_label} alt="" />
+              <button onClick={() => removeBeer(beer)}>remove from list</button>
             </li>
           ))}
         </STableGrid>

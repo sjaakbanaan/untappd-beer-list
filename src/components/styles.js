@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const SSearchBar = styled.ul`
+const SSearchBar = styled.div`
   input {
     border: 1px solid white;
     color: black;
     background-color: darkgray;
     padding: 12px;
-    width: 200px;
+    width: calc(100% - 24px);
     font-weight: 700;
     box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 1);
     transition: background-color 0.3s ease-out;
@@ -33,10 +33,13 @@ const STableGrid = styled.ul`
     flex-direction: column;
     box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 1);
     border: 1px solid white;
+    justify-content: space-between;
     button {
       border: 0;
+      padding: 12px;
+      font-weight: 700;
       width: 100%;
-      background: darkgray;
+      background: white;
       cursor: pointer;
       transition: background-color 0.3s ease-out;
       &:hover {
@@ -64,4 +67,24 @@ const STableGrid = styled.ul`
   }
 `;
 
-export { STableGrid, SSearchBar };
+const SstarRating = styled.div`
+  align-items: center;
+  justify-content: end;
+  display: flex;
+  border: 1px solid white;
+  padding: 10px 20px;
+  width: calc(100% - 40px);
+  background: white;
+  background: linear-gradient(
+    90deg,
+    rgba(176, 122, 0, 1) 0%,
+    rgba(251, 248, 77, 1) ${(props) => props.percentage}%,
+    rgba(255, 255, 255, 1) ${(props) => props.percentage}%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  div {
+    font-weight: 700;
+  }
+`;
+
+export { STableGrid, SSearchBar, SstarRating };
