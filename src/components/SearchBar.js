@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import { SearchContext } from "../App";
-import { SSearchBar } from "./styles";
+import { useState, useEffect, useContext } from 'react';
+import { SearchContext } from '../App';
+import { SSearchBar } from './styles';
 
 const SearchBar = () => {
   const { setDebouncedSearchTerm } = useContext(SearchContext);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   // every key strike is registered, but we only save it to context after 0,5s inactivity
   useEffect(() => {

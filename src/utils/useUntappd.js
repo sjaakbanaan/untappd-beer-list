@@ -1,4 +1,4 @@
-import useSWR from "swr";
+import useSWR from 'swr';
 
 // Untappd credentials
 const clientId = process.env.REACT_APP_CLIENT_ID;

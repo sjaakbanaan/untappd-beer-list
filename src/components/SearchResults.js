@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { SearchContext } from "../App";
+import { useContext } from 'react';
+import { SearchContext } from '../App';
 import useUntappd from '../utils/useUntappd';
-import { STableGrid } from "./styles";
-import "../styles.css";
+import { STableGrid } from './styles';
+import '../styles.css';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,19 +17,19 @@ const SearchResults = () => {
     if (!selectedBeers.includes(beer)) {
       setSelectedBeers([...selectedBeers, beer]);
       localStorage.setItem(
-        "selectedBeers",
+        'selectedBeers',
         JSON.stringify([...selectedBeers, beer])
       );
       // toast time
       toast.success('🍻 Beer added to the list.', {
-        position: "top-center",
+        position: 'top-center',
         autoClose: 2400,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: false,
         progress: undefined,
-        theme: "dark",
+        theme: 'dark',
       });
     }
   };
@@ -66,7 +66,7 @@ const SearchResults = () => {
       </STableGrid>
       <ToastContainer />
     </div>
-  )
+  );
 };
 
 export default SearchResults;

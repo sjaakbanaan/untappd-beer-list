@@ -1,8 +1,8 @@
-import React, { createContext, useState } from "react";
-import SearchResults from "./components/SearchResults";
-import { SelectedBeers } from "./components/SelectedBeers";
-import { SearchBar } from "./components/SearchBar";
-import "./styles.css";
+import { createContext, useState } from 'react';
+import SearchResults from './components/SearchResults';
+import { SelectedBeers } from './components/SelectedBeers';
+import { SearchBar } from './components/SearchBar';
+import './styles.css';
 
 // set a SearchContext as a state manager for all our search-related components
 export const SearchContext = createContext();
@@ -11,7 +11,7 @@ const App = () => {
   // states to use in context: 1. searched word 2. the beers on your list
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [selectedBeers, setSelectedBeers] = useState(
-    JSON.parse(localStorage.getItem("selectedBeers")) || []
+    JSON.parse(localStorage.getItem('selectedBeers')) || []
   );
 
   return (

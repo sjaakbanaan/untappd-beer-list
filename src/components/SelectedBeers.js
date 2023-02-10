@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { SearchContext } from "../App";
-import { STableGrid } from "./styles";
+import { useContext } from 'react';
+import { SearchContext } from '../App';
+import { STableGrid } from './styles';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,16 +13,16 @@ const SelectedBeers = () => {
     if (selectedBeers.includes(beer)) {
       const removeBeer = selectedBeers.filter((item) => item !== beer);
       setSelectedBeers(removeBeer);
-      localStorage.setItem("selectedBeers", JSON.stringify(removeBeer));
+      localStorage.setItem('selectedBeers', JSON.stringify(removeBeer));
       toast.warning('🍻 Beer removed from the list.', {
-        position: "top-center",
+        position: 'top-center',
         autoClose: 2400,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: false,
         progress: undefined,
-        theme: "dark",
+        theme: 'dark',
       });
     }
   };
@@ -43,13 +43,13 @@ const SelectedBeers = () => {
         </STableGrid>
         <ToastContainer />
       </div>
-    )
+    );
   } else {
     return (
       <div className="container">
         Your list is empty.
       </div>
-    )
+    );
   }
 };
 
