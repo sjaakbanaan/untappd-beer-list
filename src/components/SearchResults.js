@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { SearchContext } from "../App";
-import getBeers from '../utils/getBeers';
+import useUntappd from '../utils/useUntappd';
 import { STableGrid } from "./styles";
 import "../styles.css";
 
@@ -10,8 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const SearchResults = () => {
 
   const { debouncedSearchTerm: searchParam, selectedBeers, setSelectedBeers } = useContext(SearchContext);
-  // get search results from untappd API via getBeers util
-  const { beerData, isLoading } = getBeers({ searchParam });
+  // get search results from untappd API via useUntappd util
+  const { beerData, isLoading } = useUntappd({ searchParam });
 
   const addBeer = (beer) => {
     if (!selectedBeers.includes(beer)) {
@@ -21,7 +21,7 @@ const SearchResults = () => {
         JSON.stringify([...selectedBeers, beer])
       );
       // toast time
-      toast.success('🦄 Bier toegevoegd aan lijst!', {
+      toast.success('🍻 Beer added to the list.', {
         position: "top-center",
         autoClose: 2400,
         hideProgressBar: false,
@@ -54,10 +54,13 @@ const SearchResults = () => {
     <div className="container">
       <STableGrid>
         {beerData.beers.map((item) => (
-          <li key={item.bid} onClick={() => addBeer(item.beer)}>
-            <span>{item.beer.beer_name}</span>
-            <img src={item.beer.beer_label} alt="" />
-            <span>{item.brewery.brewery_name}</span>
+          <li key={item.bid}>
+            <button onClick={() => addBeer(item.beer)}>
+              <span>{item.beer.beer_name}<br />
+              {item.checkin_count.toLocaleString('nl-NL')} checkins</span>
+              <img src={item.beer.beer_label} alt="" />
+              <span>{item.brewery.brewery_name}</span>
+            </button>
           </li>
         ))}
       </STableGrid>

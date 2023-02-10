@@ -14,7 +14,7 @@ const SelectedBeers = () => {
       const removeBeer = selectedBeers.filter((item) => item !== beer);
       setSelectedBeers(removeBeer);
       localStorage.setItem("selectedBeers", JSON.stringify(removeBeer));
-      toast.warning('🦄 Bier verwijderd van de lijst.', {
+      toast.warning('🍻 Beer removed from the list.', {
         position: "top-center",
         autoClose: 2400,
         hideProgressBar: false,
@@ -33,9 +33,11 @@ const SelectedBeers = () => {
         <h2>Selected Beers</h2>
         <STableGrid>
           {selectedBeers.map((beer) => (
-            <li key={beer.bid} onClick={() => removeBeer(beer)}>
-              <span>{beer.beer_name}</span>
-              <img src={beer.beer_label} alt="" />
+            <li key={beer.bid}>
+              <button onClick={() => removeBeer(beer)}>
+                <span>{beer.beer_name}</span>
+                <img src={beer.beer_label} alt="" />
+              </button>
             </li>
           ))}
         </STableGrid>
