@@ -48,6 +48,7 @@
     "no-param-reassign": 0,
     "no-shadow": "off",
     "object-curly-newline": "off",
+    "indent": ["error", 2],
     "import/no-unresolved": [
       2,
       {

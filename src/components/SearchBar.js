@@ -24,7 +24,12 @@ const SearchBar = () => {
   return (
     <div className="container">
       <SSearchBar>
-        <input type="text" onChange={handleInput} placeholder="What beer are you looking for?" value={searchTerm} />
+        <input
+          type="text"
+          onChange={handleInput}
+          placeholder="What beer are you looking for?"
+          value={searchTerm}
+        />
       </SSearchBar>
     </div>
   );

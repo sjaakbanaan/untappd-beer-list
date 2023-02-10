@@ -8,9 +8,11 @@ const SSearchBar = styled.ul`
     padding: 12px;
     width: 200px;
     font-weight: 700;
-    box-shadow: 1px 1px 5px -2px rgba(0,0,0,1);
-    &:focus {
-      border: 1px solid darkgray;
+    box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 1);
+    transition: background-color 0.3s ease-out;
+    &:focus-visible {
+      outline: none;
+      background-color: white;
     }
   }
 `;
@@ -29,14 +31,14 @@ const STableGrid = styled.ul`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: 1px 1px 5px -2px rgba(0,0,0,1);
+    box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 1);
     border: 1px solid white;
     button {
       border: 0;
       width: 100%;
       background: darkgray;
       cursor: pointer;
-      transition: background-color .3s ease-out;
+      transition: background-color 0.3s ease-out;
       &:hover {
         background-color: #fff;
       }

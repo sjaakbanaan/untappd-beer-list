@@ -12,7 +12,7 @@ function useUntappd({ searchParam }) {
   const { data, isLoading } = useSWR(
     `https://api.untappd.com/v4/search/beer?q=${searchParam}&client_id=${clientId}&client_secret=${clientSecret}`,
     fetcher,
-    fetcherOptions,
+    fetcherOptions
   );
   if (data && Object.keys(data).length > 0) {
     beerData.beers = data.response?.beers?.items;

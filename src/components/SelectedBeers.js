@@ -6,7 +6,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const SelectedBeers = () => {
-
   const { selectedBeers, setSelectedBeers } = useContext(SearchContext);
 
   const removeBeer = (beer) => {
@@ -45,11 +44,7 @@ const SelectedBeers = () => {
       </div>
     );
   } else {
-    return (
-      <div className="container">
-        Your list is empty.
-      </div>
-    );
+    return <div className="container">Your list is empty.</div>;
   }
 };
 
