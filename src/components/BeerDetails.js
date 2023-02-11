@@ -15,10 +15,21 @@ const BeerDetails = ({ beerId }) => {
     return <div className="container">No details found...</div>;
   }
   return (
-    <SstarRating percentage={beerData?.rating_score * 10 * 2}>
-      <div>{beerData?.rating_score.toFixed(2)}</div>
-    </SstarRating>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <SstarRating
+        percentage={beerData?.rating_score * 10 * 2}
+        aria-label={`Rating of this beer is ${beerData?.rating_score.toFixed(
+          2
+        )} out of 5.`}
+      ></SstarRating>
+      <div style={{ marginLeft: '20px', fontWeight: '700' }}>
+        {beerData?.rating_score.toFixed(2)}
+      </div>
+    </div>
   );
+  //   <SstarRating percentage={beerData?.rating_score * 10 * 2}>
+  //
+  // </SstarRating>
 };
 BeerDetails.propTypes = {
   beerId: PropTypes.number.isRequired,

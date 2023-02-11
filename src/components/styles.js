@@ -70,6 +70,9 @@ const STableGrid = styled.ul`
       flex-direction: column;
       align-items: center;
     }
+    &.new-item {
+      animation: append-animate 0.2s linear;
+    }
   }
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
@@ -80,22 +83,21 @@ const STableGrid = styled.ul`
 `;
 
 const SstarRating = styled.div`
-  align-items: center;
-  justify-content: end;
-  display: flex;
-  border-top: 1px solid white;
-  padding: 10px 20px;
-  width: calc(100% - 40px);
-  background: white;
-  background: linear-gradient(
-    90deg,
-    rgba(176, 122, 0, 1) 0%,
-    rgba(251, 248, 77, 1) ${(props) => props.percentage}%,
-    rgba(255, 255, 255, 1) ${(props) => props.percentage}%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  div {
-    font-weight: 700;
+  display: inline-block;
+  font-size: 30px;
+  line-height: 1;
+  padding: 10px;
+  &::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(
+      90deg,
+      #fc0 ${(props) => props.percentage}%,
+      #fff ${(props) => props.percentage}%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 `;
 
