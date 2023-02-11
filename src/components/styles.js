@@ -36,7 +36,7 @@ const STableGrid = styled.ul`
     justify-content: space-between;
     button {
       border: 0;
-      padding: 12px;
+      padding: 15px;
       font-weight: 700;
       width: 100%;
       background: white;
@@ -49,17 +49,19 @@ const STableGrid = styled.ul`
     span {
       display: block;
       margin: 10px 0;
-      padding: 12px 10px 6px;
-      line-height: 1;
       font-weight: 700;
-      background-color: darkkhaki;
     }
     img {
-      margin-bottom: 10px;
+      margin: 10px 0;
       border: 10px solid white;
     }
     .table-item-footer {
       width: 100%;
+    }
+    .table-item-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
   @media (min-width: 768px) {
@@ -74,8 +76,8 @@ const SstarRating = styled.div`
   align-items: center;
   justify-content: end;
   display: flex;
-  border: 1px solid white;
-  padding: 10px 20px;
+  border-top: 1px solid white;
+  padding: 9px 20px;
   width: calc(100% - 40px);
   background: white;
   background: linear-gradient(

@@ -11,18 +11,19 @@ const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
     <STableGrid>
       {beersData.map((item) => (
         <li key={item.beer.bid}>
-          <div>
-            <span>
-              {item.beer.beer_name}
-              <br />
-              {item.checkin_count.toLocaleString('nl-NL')} checkins
-            </span>
+          <div className="table-item-content">
+            <h3>{item.beer.beer_name}</h3>
+            {item.checkin_count.toLocaleString('nl-NL')} checkins
+            <br />
             <img src={item.beer.beer_label} alt="" />
             <span>{item.brewery.brewery_name}</span>
           </div>
           <div className="table-item-footer">
-            <button onClick={() => setGetBeerDetails(item.beer.bid)}>show info</button>
-            {getBeerDetails == item.beer.bid && <BeerDetails beerId={item.beer.bid} />}
+            {getBeerDetails == item.beer.bid ? (
+              <BeerDetails beerId={item.beer.bid} />
+            ) : (
+              <button onClick={() => setGetBeerDetails(item.beer.bid)}>show info</button>
+            )}
             {!isRemove ? (
               <button onClick={() => addBeer(item)}>add to list</button>
             ) : (
