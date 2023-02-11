@@ -37,15 +37,15 @@ const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
 SearchResultsTable.propTypes = {
   beersData: PropTypes.array.isRequired,
   getBeerDetails: PropTypes.string,
-  addBeer: PropTypes.func,
-  removeBeer: PropTypes.func,
+  addBeer: PropTypes.oneOfType([PropTypes.func, PropTypes.array]),
+  removeBeer: PropTypes.oneOfType([PropTypes.func, PropTypes.array]),
   isRemove: PropTypes.bool,
 };
 
 SearchResultsTable.defaultProps = {
   getBeerDetails: '',
-  addBeer: [],
-  removeBeer: [],
+  addBeer: undefined,
+  removeBeer: undefined,
   isRemove: false,
 };
 

@@ -21,7 +21,7 @@ const BeerDetails = ({ beerId }) => {
   );
 };
 BeerDetails.propTypes = {
-  beerId: PropTypes.string.isRequired,
+  beerId: PropTypes.number.isRequired,
 };
 
 export default BeerDetails;
