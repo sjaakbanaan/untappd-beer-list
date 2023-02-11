@@ -27,7 +27,7 @@ const SearchBar = () => {
         <input
           type="text"
           onChange={handleInput}
-          placeholder="What beer are you looking for?"
+          placeholder="What beer are you looking for? Search for the name of the beer, optionaly combined with the name of the brewery"
           value={searchTerm}
         />
       </SSearchBar>

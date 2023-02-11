@@ -22,7 +22,7 @@ const SearchResults = () => {
       setSelectedBeers([...selectedBeers, beer]);
       localStorage.setItem('selectedBeers', JSON.stringify([...selectedBeers, beer]));
       // toast time
-      toast.warning('🍻 Beer removed from the list.', toastConfig);
+      toast.success('🍻 Beer added to the list.', toastConfig);
     }
   };
 
@@ -38,7 +38,7 @@ const SearchResults = () => {
     <div className="container">
       <h2>Search Results</h2>
       <SearchResultTable beersData={beersData} addBeer={addBeer} />
-      <ToastContainer />
+      <ToastContainer toastStyle={{ backgroundColor: '#454545' }} />
     </div>
   );
 };

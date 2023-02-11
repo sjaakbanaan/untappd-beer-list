@@ -12,11 +12,11 @@ const BeerDetails = ({ beerId }) => {
   }
   // no data found
   if (!Object.values(beerData).length > 0) {
-    return <div className="container">Nothing...</div>;
+    return <div className="container">No details found...</div>;
   }
   return (
     <SstarRating percentage={beerData?.rating_score * 10 * 2}>
-      <div>{beerData?.rating_score}</div>
+      <div>{beerData?.rating_score.toFixed(2)}</div>
     </SstarRating>
   );
 };

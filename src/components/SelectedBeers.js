@@ -23,7 +23,7 @@ const SelectedBeers = () => {
       <div className="container">
         <h2>Selected Beers</h2>
         <SearchResultsTable beersData={selectedBeers} removeBeer={removeBeer} isRemove />
-        <ToastContainer />
+        <ToastContainer toastStyle={{ backgroundColor: '#454545' }} />
       </div>
     );
   } else {

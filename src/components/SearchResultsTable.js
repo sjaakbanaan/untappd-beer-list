@@ -22,12 +22,14 @@ const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
             {getBeerDetails == item.beer.bid ? (
               <BeerDetails beerId={item.beer.bid} />
             ) : (
-              <button onClick={() => setGetBeerDetails(item.beer.bid)}>show info</button>
+              <button onClick={() => setGetBeerDetails(item.beer.bid)}>
+                Show rating
+              </button>
             )}
             {!isRemove ? (
-              <button onClick={() => addBeer(item)}>add to list</button>
+              <button onClick={() => addBeer(item)}>Add to list</button>
             ) : (
-              <button onClick={() => removeBeer(item)}>remove from list</button>
+              <button onClick={() => removeBeer(item)}>Remove from list</button>
             )}
           </div>
         </li>

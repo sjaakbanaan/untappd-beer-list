@@ -35,15 +35,22 @@ const STableGrid = styled.ul`
     border: 1px solid white;
     justify-content: space-between;
     button {
+      font-family: 'Anek Kannada', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        sans-serif;
+      font-size: 1rem;
       border: 0;
-      padding: 15px;
+      border-top: 1px solid darkgray;
+      padding: 10px;
       font-weight: 700;
       width: 100%;
       background: white;
       cursor: pointer;
       transition: background-color 0.3s ease-out;
       &:hover {
-        background-color: #fff;
+        background-color: #999;
+      }
+      &:first-of-type {
+        border-top: 1px solid white;
       }
     }
     span {
@@ -77,7 +84,7 @@ const SstarRating = styled.div`
   justify-content: end;
   display: flex;
   border-top: 1px solid white;
-  padding: 9px 20px;
+  padding: 10px 20px;
   width: calc(100% - 40px);
   background: white;
   background: linear-gradient(
