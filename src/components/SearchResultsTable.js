@@ -24,13 +24,15 @@ const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
             <img src={item.beer.beer_label} alt="" />
             <span>{item.brewery.brewery_name}</span>
           </div>
-          <button onClick={() => showBeerDetails(item.beer.bid)}>show info</button>
-          {getBeerDetails == item.beer.bid && <BeerDetails beerId={item.beer.bid} />}
-          {!isRemove ? (
-            <button onClick={() => addBeer(item)}>add to list</button>
-          ) : (
-            <button onClick={() => removeBeer(item)}>remove from list</button>
-          )}
+          <div className="table-item-footer">
+            <button onClick={() => showBeerDetails(item.beer.bid)}>show info</button>
+            {getBeerDetails == item.beer.bid && <BeerDetails beerId={item.beer.bid} />}
+            {!isRemove ? (
+              <button onClick={() => addBeer(item)}>add to list</button>
+            ) : (
+              <button onClick={() => removeBeer(item)}>remove from list</button>
+            )}
+          </div>
         </li>
       ))}
     </STableGrid>

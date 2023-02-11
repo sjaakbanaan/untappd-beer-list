@@ -58,6 +58,9 @@ const STableGrid = styled.ul`
       margin-bottom: 10px;
       border: 10px solid white;
     }
+    .table-item-footer {
+      width: 100%;
+    }
   }
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
