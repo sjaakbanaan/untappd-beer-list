@@ -24,6 +24,8 @@ const SearchResults = () => {
       localStorage.setItem('selectedBeers', JSON.stringify([...selectedBeers, beer]));
       // toast time
       toast.success('🍻 Beer added to the list.', toastConfig);
+    } else {
+      toast.warning('This beer is already in your list.', toastConfig);
     }
   };
 
@@ -39,7 +41,7 @@ const SearchResults = () => {
     <SContainer>
       <h2>Search Results</h2>
       <SearchResultTable beersData={beersData} addBeer={addBeer} />
-      <ToastContainer toastStyle={{ backgroundColor: '#454545' }} />
+      <ToastContainer />
     </SContainer>
   );
 };

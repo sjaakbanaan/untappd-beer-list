@@ -1,13 +1,12 @@
 const toastConfig = {
   position: 'top-center',
   autoClose: 2400,
-  hideProgressBar: false,
+  hideProgressBar: true,
   closeOnClick: true,
   pauseOnHover: true,
   pauseOnFocusLoss: false,
   draggable: false,
-  progress: undefined,
-  theme: 'dark',
+  theme: 'light',
 };
 
 export default toastConfig;

@@ -24,7 +24,7 @@ const SelectedBeers = () => {
       <SContainer>
         <h2>Selected Beers</h2>
         <SearchResultsTable beersData={selectedBeers} removeBeer={removeBeer} isRemove />
-        <ToastContainer toastStyle={{ backgroundColor: '#454545' }} />
+        <ToastContainer />
       </SContainer>
     );
   } else {
