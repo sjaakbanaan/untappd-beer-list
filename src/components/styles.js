@@ -21,7 +21,7 @@ const STableGrid = styled.ul`
   display: grid;
   grid-template-columns: 1fr;
   margin: 0 -5px;
-  li {
+  li.table-item {
     padding: 0;
     margin: 5px;
     background: darkgray;
@@ -70,9 +70,7 @@ const STableGrid = styled.ul`
       flex-direction: column;
       align-items: center;
     }
-    &.new-item {
-      animation: append-animate 0.2s linear;
-    }
+    animation: append-animate 0.2s linear;
   }
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);

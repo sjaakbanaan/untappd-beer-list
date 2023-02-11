@@ -6,7 +6,7 @@ const SearchBar = () => {
   const { setDebouncedSearchTerm } = useContext(SearchContext);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // every key strike is registered, but we only save it to context after 0,5s inactivity
+  // every key strike is registered, but we only save it to context after 1s inactivity
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
@@ -27,7 +27,7 @@ const SearchBar = () => {
         <input
           type="text"
           onChange={handleInput}
-          placeholder="What beer are you looking for? Search for the name of the beer, optionaly combined with the name of the brewery"
+          placeholder="What beer are you looking for? Search for bee name, optionaly combined with the brewery name"
           value={searchTerm}
         />
       </SSearchBar>

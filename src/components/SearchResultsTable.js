@@ -10,7 +10,7 @@ const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
   return (
     <STableGrid>
       {beersData.map((item) => (
-        <li key={item.beer.bid} className="new-item">
+        <li key={item.beer.bid} className="table-item">
           <div className="table-item-content">
             <h3>{item.beer.beer_name}</h3>
             {item.checkin_count.toLocaleString('nl-NL')} checkins
