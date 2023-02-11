@@ -49,21 +49,3 @@ h3 {
 .wrapper {
   padding: 5px 10px;
 }
-
-/* TODO: transform into styled component */
-.container {
-  padding: 10px 0;
-}
-
-/* animations */
-
-@keyframes append-animate {
-  from {
-    transform: translate(0, -60px);
-    opacity: 0;
-  }
-  to {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-}

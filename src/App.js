@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 import SearchResults from './components/SearchResults';
 import { SelectedBeers } from './components/SelectedBeers';
 import { SearchBar } from './components/SearchBar';
+import { DbGetTest } from './components/DbGetTest';
 import './styles.css';
 
 // set a SearchContext as a state manager for all our search-related components
@@ -16,7 +17,8 @@ const App = () => {
 
   return (
     <div className="wrapper">
-      <h1>Untappd List Creator</h1>
+      <h1>Untappd List Creatorrr</h1>
+      <DbGetTest />
       <SearchContext.Provider
         value={{
           debouncedSearchTerm,

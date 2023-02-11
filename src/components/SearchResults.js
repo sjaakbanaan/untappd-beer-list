@@ -3,6 +3,7 @@ import { SearchContext } from '../App';
 import useUntappd from '../utils/useUntappd';
 import toastConfig from '../utils/toastConfig';
 import '../styles.css';
+import { SContainer } from './styles';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,19 +28,19 @@ const SearchResults = () => {
   };
 
   if (isLoading) {
-    return <div className="container">Loading...</div>;
+    return <SContainer>Loading...</SContainer>;
   }
 
   // no data found
   if (!Object.values(beersData).length > 0) {
-    return <div className="container">Nothing...</div>;
+    return <SContainer>Nothing...</SContainer>;
   }
   return (
-    <div className="container">
+    <SContainer>
       <h2>Search Results</h2>
       <SearchResultTable beersData={beersData} addBeer={addBeer} />
       <ToastContainer toastStyle={{ backgroundColor: '#454545' }} />
-    </div>
+    </SContainer>
   );
 };
 

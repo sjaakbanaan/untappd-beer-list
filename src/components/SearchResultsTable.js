@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../styles.css';
-import { STableGrid } from './styles';
+import { STableGrid, SAnimatedResultCard } from './styles';
 import BeerDetails from './BeerDetails';
 
 const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
@@ -10,7 +10,7 @@ const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
   return (
     <STableGrid>
       {beersData.map((item) => (
-        <li key={item.beer.bid} className="table-item">
+        <SAnimatedResultCard key={item.beer.bid}>
           <div className="table-item-content">
             <h3>{item.beer.beer_name}</h3>
             {item.checkin_count.toLocaleString('nl-NL')} checkins
@@ -32,7 +32,7 @@ const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
               <button onClick={() => removeBeer(item)}>Remove from list</button>
             )}
           </div>
-        </li>
+        </SAnimatedResultCard>
       ))}
     </STableGrid>
   );

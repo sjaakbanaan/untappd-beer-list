@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { SearchContext } from '../App';
-import { SSearchBar } from './styles';
+import { SContainer, SSearchBar } from './styles';
 
 const SearchBar = () => {
   const { setDebouncedSearchTerm } = useContext(SearchContext);
@@ -22,7 +22,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="container">
+    <SContainer>
       <SSearchBar>
         <input
           type="text"
@@ -31,7 +31,7 @@ const SearchBar = () => {
           value={searchTerm}
         />
       </SSearchBar>
-    </div>
+    </SContainer>
   );
 };
 
