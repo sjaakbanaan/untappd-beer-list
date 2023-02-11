@@ -10,6 +10,10 @@ const BeerDetails = ({ beerId }) => {
   if (isLoading) {
     return <div className="container">Loading...</div>;
   }
+  // no data found
+  if (!Object.values(beerData).length > 0) {
+    return <div className="container">Nothing...</div>;
+  }
   return (
     <SstarRating percentage={beerData?.rating_score * 10 * 2}>
       <div>{beerData?.rating_score}</div>
