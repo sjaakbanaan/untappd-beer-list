@@ -112,6 +112,9 @@ const SRatingContainer = styled.div`
   .rating-stars {
     display: inline-block;
     font-size: 30px;
+    @media (min-width: 1440px) and (max-width: 1680px) {
+      font-size: 22px;
+    }
     line-height: 1;
     padding: 10px;
     &::before {
@@ -120,7 +123,7 @@ const SRatingContainer = styled.div`
       background: linear-gradient(
         90deg,
         #fc0 ${(props) => props.percentage}%,
-        #fff ${(props) => props.percentage}%
+        white ${(props) => props.percentage}%
       );
       background-clip: text;
       -webkit-background-clip: text;
