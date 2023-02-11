@@ -7,10 +7,6 @@ import BeerDetails from './BeerDetails';
 const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
   const [getBeerDetails, setGetBeerDetails] = useState(0);
 
-  const showBeerDetails = (beerId) => {
-    setGetBeerDetails(beerId);
-  };
-
   return (
     <STableGrid>
       {beersData.map((item) => (
@@ -25,7 +21,7 @@ const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
             <span>{item.brewery.brewery_name}</span>
           </div>
           <div className="table-item-footer">
-            <button onClick={() => showBeerDetails(item.beer.bid)}>show info</button>
+            <button onClick={() => setGetBeerDetails(item.beer.bid)}>show info</button>
             {getBeerDetails == item.beer.bid && <BeerDetails beerId={item.beer.bid} />}
             {!isRemove ? (
               <button onClick={() => addBeer(item)}>add to list</button>
