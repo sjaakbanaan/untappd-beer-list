@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../styles.css';
-import { STableGrid, SAnimatedResultCard } from './styles';
+import { STableGrid, SAnimatedResultCard, SRatingContainer } from './styles';
 import BeerDetails from './BeerDetails';
 
 const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
@@ -19,8 +19,22 @@ const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
             <span>{item.brewery.brewery_name}</span>
           </div>
           <div className="table-item-footer">
+            {/* TODO: this one still dirty, should change BeerDetails component
+            instead, but that became messy because it expects untappd data. */}
             {getBeerDetails == item.beer.bid ? (
               <BeerDetails beerId={item.beer.bid} />
+            ) : item.beer.rating_score ? (
+              <SRatingContainer percentage={item.beer.rating_score * 10 * 2}>
+                <div
+                  className="rating-stars"
+                  aria-label={`Rating of this beer is ${Number(
+                    item.beer.rating_score
+                  ).toFixed(2)} out of 5.`}
+                ></div>
+                <div className="rating-number">
+                  {Number(item.beer.rating_score).toFixed(2)}
+                </div>
+              </SRatingContainer>
             ) : (
               <button onClick={() => setGetBeerDetails(item.beer.bid)}>
                 Show rating

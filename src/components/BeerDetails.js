@@ -14,6 +14,7 @@ const BeerDetails = ({ beerId }) => {
   if (!Object.values(beerData).length > 0) {
     return <SContainer>No details found...</SContainer>;
   }
+
   return (
     <SRatingContainer percentage={beerData?.rating_score * 10 * 2}>
       <div

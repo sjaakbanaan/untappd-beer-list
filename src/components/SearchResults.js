@@ -19,6 +19,7 @@ const SearchResults = () => {
   const { beersData, isLoading } = useUntappd({ searchParam });
 
   const addBeer = (beer) => {
+    // console.log(selectedBeers);
     if (!selectedBeers.includes(beer)) {
       setSelectedBeers([...selectedBeers, beer]);
       localStorage.setItem('selectedBeers', JSON.stringify([...selectedBeers, beer]));
