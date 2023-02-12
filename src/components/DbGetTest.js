@@ -8,6 +8,8 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const DbGetTest = () => {
   const fetcherOptions = { revalidateOnFocus: false };
+
+  // https://mfikri.com/en/blog/express-reactjs-mysql
   const { data: beers, isLoading } = useSWR(
     'http://localhost:3003/beers',
     fetcher,
