@@ -3,38 +3,23 @@ import { x } from '@xstyled/styled-components';
 import { keyframes } from 'styled-components';
 
 const SSearchBar = styled(x.div)`
-  input {
+  /* input {
     border: 1px solid;
     border-color: light;
     border-color: primary;
     background-color: dark400;
-    padding: 12px;
+    padding: 18px 14px 14px;
     width: 100%;
-    font-weight: 700;
+    font-weight: bold;
     box-shadow: up;
     transition: background-color 0.3s ease-out;
+  } */
+  // TODO: xstyled
+  input {
     &:focus-visible {
       outline: none;
       background-color: light;
     }
-  }
-`;
-
-const STableGrid = styled(x.ul)`
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 0 -5px;
-  @media (min-width: 540px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  @media (min-width: 1440px) {
-    grid-template-columns: repeat(6, 1fr);
   }
 `;
 
@@ -53,13 +38,13 @@ const SResultCard = styled(x.div)`
   border-color: light;
   justify-content: space-between;
   button {
-    font-family: 'Anek Kannada', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 1rem;
+    font-family: body;
+    font-size: normal;
     border: 1px 0 0;
     border-color: dark400;
-    padding: 11px;
+    padding: 18px 14px 14px;
     color: primary;
-    font-weight: 700;
+    font-weight: bold;
     width: 100%;
     background-color: light;
     cursor: pointer;
@@ -75,7 +60,7 @@ const SResultCard = styled(x.div)`
   span {
     display: block;
     margin: 10px 0;
-    font-weight: 700;
+    font-weight: bold;
   }
   img {
     margin: 10px 0;
@@ -114,10 +99,10 @@ const SRatingContainer = styled(x.div)`
   .rating-stars {
     display: inline-block;
     font-size: 30px;
-    @media (min-width: 1440px) and (max-width: 1680px) {
+    @media (min-width: xl) and (max-width: xxl) {
       font-size: 22px;
     }
-    line-height: 1;
+    line-height: none;
     padding: 10px;
     &::before {
       content: '★★★★★';
@@ -133,8 +118,8 @@ const SRatingContainer = styled(x.div)`
     }
   }
   .rating-number {
-    font-weight: 700;
+    font-weight: bold;
   }
 `;
 
-export { STableGrid, SAnimatedResultCard, SSearchBar, SRatingContainer };
+export { SAnimatedResultCard, SSearchBar, SRatingContainer };

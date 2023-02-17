@@ -25,6 +25,14 @@ const SearchBar = () => {
   return (
     <x.div mb="20px" as={SSearchBar}>
       <x.input
+        w="100%"
+        boxShadow="up"
+        fontWeight="bold"
+        bg={{ _: 'dark400', focus: 'light' }}
+        padding="18px 14px 14px"
+        transition
+        transitionDuration={300}
+        transitionProperty="background-color"
         type="text"
         onChange={handleInput}
         placeholder="What beer are you looking for? Search for bee name, optionaly combined with the brewery name"

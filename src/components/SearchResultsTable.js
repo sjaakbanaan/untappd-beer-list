@@ -1,54 +1,58 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { x } from '@xstyled/styled-components';
-import { STableGrid, SAnimatedResultCard, SRatingContainer } from './styles';
+import { SAnimatedResultCard, SRatingContainer } from './styles';
 import BeerDetails from './BeerDetails';
 
 const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
   const [getBeerDetails, setGetBeerDetails] = useState(0);
 
   return (
-    <STableGrid>
+    <x.div
+      display="grid"
+      margin="0 -5px"
+      gridTemplateColumns={{ _: 1, sm: 2, md: 3, lg: 4, xl: 6 }}
+    >
       {beersData.map((item) => (
         <SAnimatedResultCard key={item.beer.bid}>
-          <div className="table-item-content">
+          <x.div className="table-item-content">
             <x.h3 margin="24px 0px 5px">{item.beer.beer_name}</x.h3>
             {item.checkin_count.toLocaleString('nl-NL')} checkins
-            <br />
-            <img src={item.beer.beer_label} alt="" />
-            <span>{item.brewery.brewery_name}</span>
-          </div>
-          <div className="table-item-footer">
+            <x.br />
+            <x.img src={item.beer.beer_label} alt="" />
+            <x.span>{item.brewery.brewery_name}</x.span>
+          </x.div>
+          <x.div className="table-item-footer">
             {/* TODO: this one still dirty, should change BeerDetails component
             instead, but that became messy because it expects untappd data. */}
             {getBeerDetails == item.beer.bid ? (
               <BeerDetails beerId={item.beer.bid} />
             ) : item.beer.rating_score ? (
               <SRatingContainer percentage={item.beer.rating_score * 10 * 2}>
-                <div
+                <x.div
                   className="rating-stars"
                   aria-label={`Rating of this beer is ${Number(
                     item.beer.rating_score
                   ).toFixed(2)} out of 5.`}
-                ></div>
-                <div className="rating-number">
+                ></x.div>
+                <x.div className="rating-number">
                   {Number(item.beer.rating_score).toFixed(2)}
-                </div>
+                </x.div>
               </SRatingContainer>
             ) : (
-              <button onClick={() => setGetBeerDetails(item.beer.bid)}>
+              <x.button onClick={() => setGetBeerDetails(item.beer.bid)}>
                 Show rating
-              </button>
+              </x.button>
             )}
             {!isRemove ? (
-              <button onClick={() => addBeer(item)}>Add to list</button>
+              <x.button onClick={() => addBeer(item)}>Add to list</x.button>
             ) : (
-              <button onClick={() => removeBeer(item)}>Remove from list</button>
+              <x.button onClick={() => removeBeer(item)}>Remove from list</x.button>
             )}
-          </div>
+          </x.div>
         </SAnimatedResultCard>
       ))}
-    </STableGrid>
+    </x.div>
   );
 };
 SearchResultsTable.propTypes = {

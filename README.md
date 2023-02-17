@@ -1,6 +1,9 @@
 # untappd-list-creator
 
+## not stable - WIP
+
 Create your own, shared list with Untappd beers.
+copy .env-example to .env and add your credentials
 
 to do:
 
