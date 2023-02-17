@@ -5,7 +5,7 @@ import toastConfig from '../utils/toastConfig';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchResultsTable from './SearchResultsTable';
-import { SContainer } from './styles';
+import { x } from '@xstyled/styled-components';
 
 const SelectedBeers = () => {
   const { selectedBeers, setSelectedBeers } = useContext(SearchContext);
@@ -21,14 +21,14 @@ const SelectedBeers = () => {
 
   if (selectedBeers && Object.values(selectedBeers).length > 0) {
     return (
-      <SContainer>
+      <x.div padding="10px 0px">
         <h2>Selected Beers</h2>
         <SearchResultsTable beersData={selectedBeers} removeBeer={removeBeer} isRemove />
         <ToastContainer />
-      </SContainer>
+      </x.div>
     );
   } else {
-    return <SContainer>Your list is empty.</SContainer>;
+    return <x.div padding="10px 0px">Your list is empty.</x.div>;
   }
 };
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import '../styles.css';
+import { x } from '@xstyled/styled-components';
 import { STableGrid, SAnimatedResultCard, SRatingContainer } from './styles';
 import BeerDetails from './BeerDetails';
 
@@ -12,7 +12,7 @@ const SearchResultsTable = ({ beersData, addBeer, removeBeer, isRemove }) => {
       {beersData.map((item) => (
         <SAnimatedResultCard key={item.beer.bid}>
           <div className="table-item-content">
-            <h3>{item.beer.beer_name}</h3>
+            <x.h3 margin="24px 0px 5px">{item.beer.beer_name}</x.h3>
             {item.checkin_count.toLocaleString('nl-NL')} checkins
             <br />
             <img src={item.beer.beer_label} alt="" />

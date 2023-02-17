@@ -1,29 +1,29 @@
 import PropTypes from 'prop-types';
 import useUntappd from '../utils/useUntappd';
-import '../styles.css';
-import { SContainer, SRatingContainer } from './styles';
+import { SRatingContainer } from './styles';
+import { x } from '@xstyled/styled-components';
 
 const BeerDetails = ({ beerId }) => {
   // get search result from untappd API via useUntappd util
   const { beerData, isLoading } = useUntappd({ beerId });
 
   if (isLoading) {
-    return <SContainer>Loading...</SContainer>;
+    return <x.div padding="10px 0px">Loading...</x.div>;
   }
   // no data found
   if (!Object.values(beerData).length > 0) {
-    return <SContainer>No details found...</SContainer>;
+    return <x.div padding="10px 0px">No details found...</x.div>;
   }
 
   return (
     <SRatingContainer percentage={beerData?.rating_score * 10 * 2}>
-      <div
+      <x.div
         className="rating-stars"
         aria-label={`Rating of this beer is ${beerData?.rating_score.toFixed(
           2
         )} out of 5.`}
-      ></div>
-      <div className="rating-number">{beerData?.rating_score.toFixed(2)}</div>
+      ></x.div>
+      <x.div className="rating-number">{beerData?.rating_score.toFixed(2)}</x.div>
     </SRatingContainer>
   );
 };

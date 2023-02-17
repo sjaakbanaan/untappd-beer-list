@@ -2,7 +2,7 @@
 import useSWR from 'swr';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchResultsTable from './SearchResultsTable';
-import { SContainer } from './styles';
+import { x } from '@xstyled/styled-components';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -16,7 +16,7 @@ const DbGetTest = () => {
     fetcherOptions
   );
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <x.div padding="10px 0px">Loading...</x.div>;
   }
   // console.log('beers', beers);
 
@@ -46,13 +46,13 @@ const DbGetTest = () => {
 
   if (selectedBeers && Object.values(selectedBeers).length > 0) {
     return (
-      <SContainer>
-        <h2>Selected Beers</h2>
+      <x.div padding="10px 0px">
+        <x.h2>Selected Beers</x.h2>
         <SearchResultsTable beersData={selectedBeers} removeBeer={removeBeer} isRemove />
-      </SContainer>
+      </x.div>
     );
   } else {
-    return <SContainer>Your list is empty.</SContainer>;
+    return <x.div padding="10px 0px">Your list is empty.</x.div>;
   }
 
   // return <div>bla</div>;

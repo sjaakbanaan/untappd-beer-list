@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { SearchContext } from '../App';
-import { SContainer, SSearchBar } from './styles';
+import { x } from '@xstyled/styled-components';
+import { SSearchBar } from './styles';
 
 const SearchBar = () => {
   const { setDebouncedSearchTerm } = useContext(SearchContext);
@@ -22,16 +23,14 @@ const SearchBar = () => {
   };
 
   return (
-    <SContainer>
-      <SSearchBar>
-        <input
-          type="text"
-          onChange={handleInput}
-          placeholder="What beer are you looking for? Search for bee name, optionaly combined with the brewery name"
-          value={searchTerm}
-        />
-      </SSearchBar>
-    </SContainer>
+    <x.div mb="20px" as={SSearchBar}>
+      <x.input
+        type="text"
+        onChange={handleInput}
+        placeholder="What beer are you looking for? Search for bee name, optionaly combined with the brewery name"
+        value={searchTerm}
+      />
+    </x.div>
   );
 };
 

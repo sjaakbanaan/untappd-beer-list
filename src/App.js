@@ -3,7 +3,9 @@ import SearchResults from './components/SearchResults';
 // import { SelectedBeers } from './components/SelectedBeers';
 import { SearchBar } from './components/SearchBar';
 import { DbGetTest } from './components/DbGetTest';
-import './styles.css';
+import { ThemeProvider, Preflight, x } from '@xstyled/styled-components';
+import GlobalStyles from './components/styles/GlobalStyles';
+import theme from './theme';
 
 // set a SearchContext as a state manager for all our search-related components
 export const SearchContext = createContext();
@@ -13,22 +15,26 @@ const App = () => {
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
   return (
-    <div className="wrapper">
-      <h1>Untappd List Creator</h1>
-      <SearchContext.Provider
-        value={{
-          debouncedSearchTerm,
-          setDebouncedSearchTerm,
-          // selectedBeers,
-          // setSelectedBeers,
-        }}
-      >
-        <SearchBar />
-        {debouncedSearchTerm && <SearchResults />}
-        <DbGetTest />
-        {/* {selectedBeers && <SelectedBeers />} */}
-      </SearchContext.Provider>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Preflight />
+      <GlobalStyles />
+      <x.div padding="35px 20px">
+        <x.h1 color="white">Untappd List Creator</x.h1>
+        <SearchContext.Provider
+          value={{
+            debouncedSearchTerm,
+            setDebouncedSearchTerm,
+            // selectedBeers,
+            // setSelectedBeers,
+          }}
+        >
+          <SearchBar />
+          {debouncedSearchTerm && <SearchResults />}
+          <DbGetTest />
+          {/* {selectedBeers && <SelectedBeers />} */}
+        </SearchContext.Provider>
+      </x.div>
+    </ThemeProvider>
   );
 };
 

@@ -1,28 +1,26 @@
-import styled from 'styled-components';
+import styled from '@xstyled/styled-components';
+import { x } from '@xstyled/styled-components';
 import { keyframes } from 'styled-components';
 
-const SContainer = styled.div`
-  padding: 10px 0;
-`;
-
-const SSearchBar = styled.div`
+const SSearchBar = styled(x.div)`
   input {
-    border: 1px solid white;
-    color: black;
-    background-color: darkgray;
+    border: 1px solid;
+    border-color: light;
+    border-color: primary;
+    background-color: dark400;
     padding: 12px;
-    width: calc(100% - 24px);
+    width: 100%;
     font-weight: 700;
-    box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 1);
+    box-shadow: up;
     transition: background-color 0.3s ease-out;
     &:focus-visible {
       outline: none;
-      background-color: white;
+      background-color: light;
     }
   }
 `;
 
-const STableGrid = styled.ul`
+const STableGrid = styled(x.ul)`
   display: grid;
   grid-template-columns: 1fr;
   margin: 0 -5px;
@@ -40,35 +38,38 @@ const STableGrid = styled.ul`
   }
 `;
 
-const SResultCard = styled.div`
+const SResultCard = styled(x.div)`
   padding: 0;
   margin: 5px;
-  background: darkgray;
-  color: #000;
+  background-color: dark400;
+  color: primary;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 1);
-  border: 1px solid white;
+  border: 1px solid;
+  border-color: light;
   justify-content: space-between;
   button {
     font-family: 'Anek Kannada', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 1rem;
-    border: 0;
-    border-top: 1px solid darkgray;
+    border: 1px 0 0;
+    border-color: dark400;
     padding: 11px;
+    color: primary;
     font-weight: 700;
     width: 100%;
-    background: white;
+    background-color: light;
     cursor: pointer;
     transition: background-color 0.3s ease-out;
     &:hover {
-      background-color: #999;
+      background-color: dark300;
     }
     &:first-of-type {
-      border-top: 1px solid white;
+      border-top: 1px solid;
+      border-color: light;
     }
   }
   span {
@@ -78,7 +79,8 @@ const SResultCard = styled.div`
   }
   img {
     margin: 10px 0;
-    border: 10px solid white;
+    border: 10px solid;
+    border-color: light;
   }
   .table-item-footer {
     width: 100%;
@@ -105,7 +107,7 @@ const SAnimatedResultCard = styled(SResultCard)`
   animation: ${appendAnimation} 0.2s linear;
 `;
 
-const SRatingContainer = styled.div`
+const SRatingContainer = styled(x.div)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,4 +137,4 @@ const SRatingContainer = styled.div`
   }
 `;
 
-export { SContainer, STableGrid, SAnimatedResultCard, SSearchBar, SRatingContainer };
+export { STableGrid, SAnimatedResultCard, SSearchBar, SRatingContainer };
