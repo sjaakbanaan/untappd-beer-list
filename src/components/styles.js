@@ -2,29 +2,6 @@ import styled from '@xstyled/styled-components';
 import { x } from '@xstyled/styled-components';
 import { keyframes } from 'styled-components';
 
-const SResultCard = styled(x.div)`
-  button {
-    font-family: body;
-    font-size: normal;
-    border: 1px 0 0;
-    border-color: dark400;
-    padding: 18px 14px 14px;
-    color: primary;
-    font-weight: bold;
-    width: 100%;
-    background-color: light;
-    cursor: pointer;
-    transition: background-color 0.3s ease-out;
-    &:hover {
-      background-color: dark300;
-    }
-    &:first-of-type {
-      border-top: 1px solid;
-      border-color: light;
-    }
-  }
-`;
-
 const appendAnimation = keyframes`
   from {
     transform: translate(0, -60px);
@@ -36,22 +13,19 @@ const appendAnimation = keyframes`
   }
 `;
 
-const SAnimatedResultCard = styled(SResultCard)`
+const SResultCard = styled.div`
   animation: ${appendAnimation} 0.2s linear;
 `;
 
 const SRatingContainer = styled(x.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   .rating-stars {
     display: inline-block;
+    line-height: none;
+    padding: 10px;
     font-size: 30px;
     @media (min-width: xl) and (max-width: xxl) {
       font-size: 22px;
     }
-    line-height: none;
-    padding: 10px;
     &::before {
       content: '★★★★★';
       letter-spacing: 3px;
@@ -65,9 +39,6 @@ const SRatingContainer = styled(x.div)`
       -webkit-text-fill-color: transparent;
     }
   }
-  .rating-number {
-    font-weight: bold;
-  }
 `;
 
-export { SAnimatedResultCard, SRatingContainer };
+export { SResultCard, SRatingContainer };

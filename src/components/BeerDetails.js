@@ -2,9 +2,10 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { x } from '@xstyled/styled-components';
 
-import { SAnimatedResultCard } from './styles';
+import { SResultCard } from './styles';
 import BeerExtraDetails from './BeerExtraDetails';
 import RatingContainer from './RatingContainer';
+import Button from './Button';
 
 const BeerDetails = ({ beer, addBeer, removeBeer, isRemove }) => {
   const [showBeerData, setShowBeerData] = useState(0);
@@ -22,7 +23,7 @@ const BeerDetails = ({ beer, addBeer, removeBeer, isRemove }) => {
       borderColor="light"
       justifyContent="space-between"
       key={beer.beer.bid}
-      as={SAnimatedResultCard}
+      as={SResultCard}
     >
       <x.div display="flex" flexDirection="column" alignItems="center">
         <x.h3 margin="24px 0px 5px">{beer.beer.beer_name}</x.h3>
@@ -49,15 +50,13 @@ const BeerDetails = ({ beer, addBeer, removeBeer, isRemove }) => {
             {showBeerData == beer.beer.bid ? (
               <BeerExtraDetails beerId={beer.beer.bid} />
             ) : (
-              <x.button onClick={() => setShowBeerData(beer.beer.bid)}>
-                Show rating
-              </x.button>
+              <Button onClick={() => setShowBeerData(beer.beer.bid)}>Show rating</Button>
             )}
           </x.div>
         )}
-        <x.button onClick={() => (!isRemove ? addBeer(beer) : removeBeer(beer))}>
+        <Button onClick={() => (!isRemove ? addBeer(beer) : removeBeer(beer))}>
           {!isRemove ? 'Add to list' : 'Remove from list'}
-        </x.button>
+        </Button>
       </x.div>
     </x.div>
   );
