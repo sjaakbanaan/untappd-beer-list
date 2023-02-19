@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { SearchContext } from '../App';
 import { x } from '@xstyled/styled-components';
-import { SSearchBar } from './styles';
 
 const SearchBar = () => {
   const { setDebouncedSearchTerm } = useContext(SearchContext);
@@ -23,16 +22,17 @@ const SearchBar = () => {
   };
 
   return (
-    <x.div mb="20px" as={SSearchBar}>
+    <x.div mb="20px">
       <x.input
         w="100%"
         boxShadow="up"
         fontWeight="bold"
-        bg={{ _: 'dark400', focus: 'light' }}
+        bg={{ _: 'dark400', focusVisible: 'light' }}
         padding="18px 14px 14px"
         transition
         transitionDuration={300}
         transitionProperty="background-color"
+        outline={{ _: 'none', focusVisible: 'none' }}
         type="text"
         onChange={handleInput}
         placeholder="What beer are you looking for? Search for bee name, optionaly combined with the brewery name"

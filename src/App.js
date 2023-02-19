@@ -19,7 +19,7 @@ const App = () => {
       <Preflight />
       <GlobalStyles />
       <x.div padding="35px 20px">
-        <x.h1 color="white">Untappd List Creator</x.h1>
+        <x.h1>Untappd List Creator</x.h1>
         <SearchContext.Provider
           value={{
             debouncedSearchTerm,

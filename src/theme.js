@@ -1,5 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { defaultTheme } from '@xstyled/styled-components';
 export default {
+  ...defaultTheme,
   // gridSize: 1440,
   fontSizes: {
     base: '16px',

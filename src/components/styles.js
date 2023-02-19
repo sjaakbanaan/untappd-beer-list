@@ -2,41 +2,7 @@ import styled from '@xstyled/styled-components';
 import { x } from '@xstyled/styled-components';
 import { keyframes } from 'styled-components';
 
-const SSearchBar = styled(x.div)`
-  /* input {
-    border: 1px solid;
-    border-color: light;
-    border-color: primary;
-    background-color: dark400;
-    padding: 18px 14px 14px;
-    width: 100%;
-    font-weight: bold;
-    box-shadow: up;
-    transition: background-color 0.3s ease-out;
-  } */
-  // TODO: xstyled
-  input {
-    &:focus-visible {
-      outline: none;
-      background-color: light;
-    }
-  }
-`;
-
 const SResultCard = styled(x.div)`
-  padding: 0;
-  margin: 5px;
-  background-color: dark400;
-  color: primary;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 1);
-  border: 1px solid;
-  border-color: light;
-  justify-content: space-between;
   button {
     font-family: body;
     font-size: normal;
@@ -56,24 +22,6 @@ const SResultCard = styled(x.div)`
       border-top: 1px solid;
       border-color: light;
     }
-  }
-  span {
-    display: block;
-    margin: 10px 0;
-    font-weight: bold;
-  }
-  img {
-    margin: 10px 0;
-    border: 10px solid;
-    border-color: light;
-  }
-  .table-item-footer {
-    width: 100%;
-  }
-  .table-item-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 `;
 
@@ -122,4 +70,4 @@ const SRatingContainer = styled(x.div)`
   }
 `;
 
-export { SAnimatedResultCard, SSearchBar, SRatingContainer };
+export { SAnimatedResultCard, SRatingContainer };

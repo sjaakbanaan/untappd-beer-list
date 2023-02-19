@@ -1,35 +1,79 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-import useUntappd from '../utils/useUntappd';
-import { SRatingContainer } from './styles';
 import { x } from '@xstyled/styled-components';
 
-const BeerDetails = ({ beerId }) => {
-  // get search result from untappd API via useUntappd util
-  const { beerData, isLoading } = useUntappd({ beerId });
+import { SAnimatedResultCard } from './styles';
+import BeerExtraDetails from './BeerExtraDetails';
+import RatingContainer from './RatingContainer';
 
-  if (isLoading) {
-    return <x.div padding="10px 0px">Loading...</x.div>;
-  }
-  // no data found
-  if (!Object.values(beerData).length > 0) {
-    return <x.div padding="10px 0px">No details found...</x.div>;
-  }
-
+const BeerDetails = ({ beer, addBeer, removeBeer, isRemove }) => {
+  const [showBeerData, setShowBeerData] = useState(0);
   return (
-    <SRatingContainer percentage={beerData?.rating_score * 10 * 2}>
-      <x.div
-        className="rating-stars"
-        aria-label={`Rating of this beer is ${beerData?.rating_score.toFixed(
-          2
-        )} out of 5.`}
-      ></x.div>
-      <x.div className="rating-number">{beerData?.rating_score.toFixed(2)}</x.div>
-    </SRatingContainer>
+    <x.div
+      margin="5px"
+      bg="dark400"
+      color="primary"
+      textAlign="center"
+      display="flex"
+      alignItems="center"
+      flexDirection="column"
+      boxShadow="up"
+      border="1px solid"
+      borderColor="light"
+      justifyContent="space-between"
+      key={beer.beer.bid}
+      as={SAnimatedResultCard}
+    >
+      <x.div display="flex" flexDirection="column" alignItems="center">
+        <x.h3 margin="24px 0px 5px">{beer.beer.beer_name}</x.h3>
+        {beer.checkin_count.toLocaleString('nl-NL')} checkins
+        <x.br />
+        <x.img
+          margin="10px 0"
+          border="10px solid"
+          borderColor="light"
+          src={beer.beer.beer_label}
+          alt=""
+        />
+        <x.span display="block" margin="10px 0" fontWeight="bold">
+          {beer.brewery.brewery_name}
+        </x.span>
+      </x.div>
+      <x.div w="100%">
+        {/* TODO: this one still dirty, should change BeerData component
+      instead, but that became messy because it expects untappd data. */}
+        {isRemove ? (
+          <RatingContainer beerData={beer.beer} />
+        ) : (
+          <x.div>
+            {showBeerData == beer.beer.bid ? (
+              <BeerExtraDetails beerId={beer.beer.bid} />
+            ) : (
+              <x.button onClick={() => setShowBeerData(beer.beer.bid)}>
+                Show rating
+              </x.button>
+            )}
+          </x.div>
+        )}
+        <x.button onClick={() => (!isRemove ? addBeer(beer) : removeBeer(beer))}>
+          {!isRemove ? 'Add to list' : 'Remove from list'}
+        </x.button>
+      </x.div>
+    </x.div>
   );
 };
 
 BeerDetails.propTypes = {
-  beerId: PropTypes.number.isRequired,
+  beer: PropTypes.object.isRequired,
+  addBeer: PropTypes.oneOfType([PropTypes.func, PropTypes.array]),
+  removeBeer: PropTypes.oneOfType([PropTypes.func, PropTypes.array]),
+  isRemove: PropTypes.bool,
+};
+
+BeerDetails.defaultProps = {
+  addBeer: undefined,
+  removeBeer: undefined,
+  isRemove: false,
 };
 
 export default BeerDetails;
