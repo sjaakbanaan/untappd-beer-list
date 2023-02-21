@@ -8,7 +8,9 @@ export default {
     xs: '0.8125rem',
     sm: '0.88rem',
     md: '18px',
-    h1: '1.75em',
+    lg: '1.2rem',
+    xl: '1.8rem',
+    h1: '1.75rem',
     h2: '1.5rem',
     h3: '1.25rem',
   },
@@ -54,7 +56,6 @@ export default {
   },
   lineHeights: {
     none: 1,
-    normal: 1.5,
-    mobile: 1.7,
+    normal: 1.4,
   },
 };

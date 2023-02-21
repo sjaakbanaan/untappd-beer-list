@@ -9,7 +9,7 @@ const Button = ({ children, ...props }) => {
       borderColor={{ _: 'dark400', first: 'light' }}
       display="block"
       lineHeight="none"
-      padding="10px 0"
+      padding="14px 0 11px"
       color="primary"
       fontWeight="bold"
       w="100%"

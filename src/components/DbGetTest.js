@@ -16,7 +16,7 @@ const DbGetTest = () => {
     fetcherOptions
   );
   if (isLoading) {
-    return <x.div padding="10px 0px">Loading...</x.div>;
+    return <x.div padding="13px 0px 11px">Loading...</x.div>;
   }
   // console.log('beers', beers);
 
@@ -41,18 +41,18 @@ const DbGetTest = () => {
   const selectedBeers = dbResult;
 
   const removeBeer = (beer) => {
-    console.log('removeBeer temp. func', beer);
+    console.log('todo: removeBeer function', beer);
   };
 
   if (selectedBeers && Object.values(selectedBeers).length > 0) {
     return (
-      <x.div padding="10px 0px">
+      <x.div padding="13px 0px 11px">
         <x.h2>Selected Beers</x.h2>
         <SearchResultsTable beersData={selectedBeers} removeBeer={removeBeer} isRemove />
       </x.div>
     );
   } else {
-    return <x.div padding="10px 0px">Your list is empty.</x.div>;
+    return <x.div padding="13px 0px 11px">Your list is empty.</x.div>;
   }
 
   // return <div>bla</div>;

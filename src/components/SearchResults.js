@@ -30,15 +30,15 @@ const SearchResults = () => {
   };
 
   if (isLoading) {
-    return <x.div padding="10px 0px">Loading...</x.div>;
+    return <x.div padding="13px 0px 11px">Loading...</x.div>;
   }
 
   // no data found
   if (!Object.values(beersData).length > 0) {
-    return <x.div padding="10px 0px">Nothing...</x.div>;
+    return <x.div padding="13px 0px 11px">Nothing...</x.div>;
   }
   return (
-    <x.div padding="10px 0px">
+    <x.div padding="13px 0px 11px">
       <x.h2>Search Results</x.h2>
       <SearchResultTable beersData={beersData} addBeer={addBeer} />
       <ToastContainer />

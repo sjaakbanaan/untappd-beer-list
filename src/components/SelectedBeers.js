@@ -21,14 +21,14 @@ const SelectedBeers = () => {
 
   if (selectedBeers && Object.values(selectedBeers).length > 0) {
     return (
-      <x.div padding="10px 0px">
+      <x.div padding="13px 0px 11px">
         <h2>Selected Beers</h2>
         <SearchResultsTable beersData={selectedBeers} removeBeer={removeBeer} isRemove />
         <ToastContainer />
       </x.div>
     );
   } else {
-    return <x.div padding="10px 0px">Your list is empty.</x.div>;
+    return <x.div padding="13px 0px 11px">Your list is empty.</x.div>;
   }
 };
 

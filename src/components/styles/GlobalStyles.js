@@ -55,7 +55,6 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: heading;
     font-weight: bold;
-    line-height: none;
   }
   h1 {
     font-size: h1;

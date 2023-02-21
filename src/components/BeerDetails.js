@@ -25,7 +25,7 @@ const BeerDetails = ({ beer, addBeer, removeBeer, isRemove }) => {
       key={beer.beer.bid}
       as={SResultCard}
     >
-      <x.div display="flex" flexDirection="column" alignItems="center">
+      <x.div display="flex" flexDirection="column" alignItems="center" padding="0 20px">
         <x.h3 margin="24px 0px 5px">{beer.beer.beer_name}</x.h3>
         {beer.checkin_count.toLocaleString('nl-NL')} checkins
         <x.br />
@@ -41,8 +41,6 @@ const BeerDetails = ({ beer, addBeer, removeBeer, isRemove }) => {
         </x.span>
       </x.div>
       <x.div w="100%">
-        {/* TODO: this one still dirty, should change BeerData component
-      instead, but that became messy because it expects untappd data. */}
         {isRemove ? (
           <RatingContainer beerData={beer.beer} />
         ) : (
